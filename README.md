@@ -8,8 +8,9 @@ HTML/CSS/JavaScript on the frontend.
 ## Live Demo: 
 https://anemia-prediction-kdj9.onrender.com
 
+<img width="1054" height="1492" alt="Hemocheck poster" src="https://github.com/user-attachments/assets/6b001299-5b3e-4202-addb-1bdd4e29b02f" />
 
-<img width="3456" height="4608" alt="HemoCheck_Poster" src="https://github.com/user-attachments/assets/477ef127-4982-43fb-8927-0d322c2a6d4b" />
+<img width="864" height="1232" alt="2" src="https://github.com/user-attachments/assets/451e7fa1-163f-49e7-aee3-5a406e2325a0" />
 
 
 ## Project Structure
