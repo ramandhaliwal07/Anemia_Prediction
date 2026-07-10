@@ -4,6 +4,14 @@ A full-stack ML web app that predicts anemia risk from CBC (Complete Blood
 Count) values, built with Flask + scikit-learn on the backend and plain
 HTML/CSS/JavaScript on the frontend.
 
+
+## Live Demo: 
+https://anemia-prediction-kdj9.onrender.com
+
+
+<img width="3456" height="4608" alt="HemoCheck_Poster" src="https://github.com/user-attachments/assets/477ef127-4982-43fb-8927-0d322c2a6d4b" />
+
+
 ## Project Structure
 
 ```
