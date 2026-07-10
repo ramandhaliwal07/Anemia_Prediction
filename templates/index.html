@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HemoCheck — AI Anemia Prediction</title>
+<meta name="description" content="Predict anemia risk instantly from your CBC report using a machine learning model.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="/" class="brand"><span class="pulse-dot"></span> HemoCheck</a>
+    <ul class="nav-links">
+      <li><a href="#about">About Anemia</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How it Works</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/predict" class="btn btn-ghost">Predict Now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <span class="eyebrow">AI-Powered Blood Screening</span>
+      <h1>Know your anemia risk <span class="accent">before it knows you.</span></h1>
+      <p class="lead">HemoCheck analyzes your Complete Blood Count (CBC) values with a trained machine learning model to instantly flag anemia risk, so you can act early and confidently.</p>
+      <div class="hero-actions">
+        <a href="/predict" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Predict Now
+        </a>
+        <a href="#about" class="btn btn-ghost">Learn About Anemia</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>10</strong><span>CBC Parameters Analyzed</span></div>
+        <div><strong>&lt;1s</strong><span>Prediction Time</span></div>
+        <div><strong>99%</strong><span>Model Test Accuracy</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="vital-card">
+        <div class="vc-head">
+          <strong style="font-family:'Outfit',sans-serif; color:var(--blue-900);">Live CBC Snapshot</strong>
+          <span class="tag">Normal</span>
+        </div>
+        <div class="vc-hb">
+          <span class="num">14.2</span>
+          <span class="unit">g/dL Hemoglobin</span>
+        </div>
+        <div class="vc-wave">
+          <svg viewBox="0 0 300 60" preserveAspectRatio="none">
+            <path d="M0,30 L40,30 L52,10 L64,50 L76,30 L110,30 L122,15 L134,45 L146,30 L180,30 L192,8 L204,52 L216,30 L300,30" />
+          </svg>
+        </div>
+        <div class="vc-grid">
+          <div><b>4.9</b><small>RBC (M/µL)</small></div>
+          <div><b>41%</b><small>HCT</small></div>
+          <div><b>290</b><small>Platelets</small></div>
+        </div>
+      </div>
+      <div class="floating-badge b1">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+        Instant Result
+      </div>
+      <div class="floating-badge b2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+        Secure &amp; Private
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ABOUT ANEMIA ============ -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-copy">
+      <span class="eyebrow">About Anemia</span>
+      <h2 style="margin-top:16px;">A condition that quietly drains your energy</h2>
+      <p>Anemia occurs when your blood doesn't have enough healthy red blood cells or hemoglobin to carry adequate oxygen to your body's tissues. It's one of the most common blood conditions worldwide, affecting people of all ages.</p>
+      <p>Left unmanaged, it can lead to persistent fatigue, weakened immunity, and complications during pregnancy or existing heart conditions. The good news: it's highly manageable once detected early.</p>
+      <ul class="symptom-list">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Fatigue &amp; weakness</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Pale skin</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Shortness of breath</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Dizziness</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Cold hands &amp; feet</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Irregular heartbeat</li>
+      </ul>
+    </div>
+    <div class="about-visual">
+      <div class="range-row"><span class="rr-label">Normal Hemoglobin (Male)</span><span class="rr-value">13.5–17.5 g/dL</span></div>
+      <div class="range-row"><span class="rr-label">Normal Hemoglobin (Female)</span><span class="rr-value">12.0–15.5 g/dL</span></div>
+      <div class="range-row"><span class="rr-label">Normal RBC Count</span><span class="rr-value">4.2–5.9 M/µL</span></div>
+      <div class="range-row"><span class="rr-label">Normal Hematocrit</span><span class="rr-value">36–50%</span></div>
+      <div class="range-row"><span class="rr-label">Global Prevalence</span><span class="rr-value">~25% of people</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section section-alt" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why HemoCheck</span>
+      <h2>Built for clarity, speed, and trust</h2>
+      <p>A focused tool that turns raw CBC numbers into an actionable, easy-to-understand result.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Instant Predictions</h3>
+        <p>Get a result in under a second, powered by a trained scikit-learn classification model.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div>
+        <h3>Privacy First</h3>
+        <p>Your CBC values are used only to generate your result — nothing is stored or shared.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 5-7"/></svg></div>
+        <h3>Confidence Scoring</h3>
+        <p>Every prediction ships with a transparent confidence percentage, not just a yes/no answer.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>10-Parameter Analysis</h3>
+        <p>Considers Hemoglobin, RBC, WBC, HCT, MCV, MCH, MCHC, Platelets, Age &amp; Gender together.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+        <h3>Personalized Guidance</h3>
+        <p>Receive tailored precautions, diet suggestions, and doctor-visit advice with every result.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
+        <h3>Mobile Friendly</h3>
+        <p>Check your results on any device — the interface adapts smoothly to any screen size.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How it Works</span>
+      <h2>From CBC report to result in 4 steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Enter your values</h4>
+        <p>Fill in your age, gender, and CBC parameters from your latest blood report.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Instant validation</h4>
+        <p>The form checks each field is complete and within a realistic clinical range.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Model prediction</h4>
+        <p>A trained Random Forest model scores your data and returns a prediction with confidence.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4>Actionable result</h4>
+        <p>View your health status, plus precautions, diet tips, and doctor advice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section" style="padding-top:0;">
+  <div class="cta-band">
+    <h2>Ready to check your anemia risk?</h2>
+    <p>It takes less than a minute to fill in your CBC values and get a clear, actionable result.</p>
+    <a href="/predict" class="btn btn-outline-white">
+      Start Prediction
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="pulse-dot"></span> HemoCheck</div>
+        <p style="color:rgba(255,255,255,0.6); font-size:0.88rem;">An AI-assisted screening tool to help you understand your anemia risk from CBC data.</p>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/predict">Predict Now</a></li>
+          <li><a href="#about">About Anemia</a></li>
+          <li><a href="#features">Features</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#about">Symptoms Guide</a></li>
+          <li><a href="#how-it-works">How it Works</a></li>
+          <li><a href="#">Diet Recommendations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#">support@hemocheck.app</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 HemoCheck. All rights reserved.</span>
+      <span class="footer-disclaimer">This tool provides an informational risk estimate only and is not a substitute for professional medical diagnosis. Always consult a licensed physician.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
